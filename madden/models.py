@@ -54,5 +54,25 @@ class PlayerStats(models.Model):
     interceptions = models.PositiveIntegerField(max_length = 2, blank=True)
     defensive_tds = models.PositiveIntegerField(max_length = 2, blank=True)
 
-class SeasonStats(model.Model):
-    
+class SeasonStats(models.Model):
+    owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='owner')
+    season = models.PositiveIntegerField(max_length = 4) 
+    wins = models.PositiveIntegerField(max_length = 2)
+    losses = models.PositiveIntegerField(max_length = 2)
+    pf = models.PositiveIntegerField(max_length = 4)
+    pa = models.PositiveIntegerField(max_length = 4)
+    total_yards_offense = models.PositiveIntegerField(max_length = 5) 
+    total_offense = models.PositiveIntegerField(max_length = 5)
+    pass_yards = models.PositiveIntegerField(max_length = 5)
+    rush_yards = models.PositiveIntegerField(max_length = 5)
+    ppg = models.FloatField(max_length = 3)
+    pass_tds = models.PositiveIntegerField(max_length = 3)
+    rush_tds = models.PositiveIntegerField(max_length = 3)
+    first_downs = models.PositiveIntegerField(max_length = 4)
+    total_yards_defense = models.PositiveIntegerField(max_length = 5)
+    pass_yards_allowed = models.PositiveIntegerField(max_length = 5)
+    rush_yards_allowed = models.PositiveIntegerField(max_length = 5)
+    sacks = models.PositiveIntegerField(max_length = 3)
+    forced_fumbles = models.PositiveIntegerField(max_length = 3)
+    interceptions = models.PositiveIntegerField(max_length = 3)
+
