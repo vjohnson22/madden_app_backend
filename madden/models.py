@@ -13,7 +13,7 @@ class Game(models.Model):
     won = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='wins')
     lost = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='losses')
 
-class GameStats(models.Model):
+class GameStat(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='game_stats')
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='owner_game_Stats')
     against = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='played_against')
@@ -29,7 +29,7 @@ class Player(models.Model):
     name = models.CharField(max_length=100)
     photo_url = models.TextField()
 
-class PlayerStats(models.Model):
+class PlayerStat(models.Model):
     name = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='player')
     position = models.CharField(max_length= 2)
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='game')
@@ -54,7 +54,7 @@ class PlayerStats(models.Model):
     interceptions = models.PositiveIntegerField(blank=True)
     defensive_tds = models.PositiveIntegerField(blank=True)
 
-class SeasonStats(models.Model):
+class SeasonStat(models.Model):
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='season_owner')
     season = models.PositiveIntegerField() 
     wins = models.PositiveIntegerField()
