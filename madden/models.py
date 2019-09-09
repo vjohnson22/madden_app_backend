@@ -22,7 +22,7 @@ class Game(models.Model):
 
 class GameStat(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='game_stats')
-    owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='owner_game_Stats')
+    owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='owner_game_stats')
     against = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='played_against')
     points = models.PositiveIntegerField()
     off_yards_gained = models.PositiveIntegerField()
