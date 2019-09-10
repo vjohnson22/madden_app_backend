@@ -117,5 +117,5 @@ class SeasonStatSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True
     )
     class Meta:
-        model = PlayerStat
+        model = SeasonStat
         fields = ('id','owner', 'season','wins','losses','pf','pa','total_yards_offense','total_offense','pass_yards','rush_yards','ppg', 'pass_tds','rush_tds','first_downs','total_yards_defense','pass_yards_allowed','rush_yards_allowed','sacks', 'forced_fumbles',   'interceptions')

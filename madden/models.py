@@ -90,6 +90,20 @@ class SeasonStat(models.Model):
     sacks = models.PositiveIntegerField()
     forced_fumbles = models.PositiveIntegerField()
     interceptions = models.PositiveIntegerField()
+    mvp = models.PositiveIntegerField(default=0)
+    coach_of_year = models.PositiveIntegerField(default=0)
+    opoy = models.PositiveIntegerField(default=0)
+    dpoy = models.PositiveIntegerField(default=0)
+    qboy = models.PositiveIntegerField(default=0)
+    rboy = models.PositiveIntegerField(default=0)
+    wroy = models.PositiveIntegerField(default=0)
+    oloy = models.PositiveIntegerField(default=0)
+    dloy = models.PositiveIntegerField(default=0)
+    lboy = models.PositiveIntegerField(default=0)
+    dboy = models.PositiveIntegerField(default=0)
+    koy = models.PositiveIntegerField(default=0)
+    
+
 
     def __str__(self):
         return f'{self.owner}: {self.season} Season'
