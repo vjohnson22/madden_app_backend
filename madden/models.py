@@ -24,6 +24,8 @@ class GameStat(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='game_stats')
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='owner_game_stats')
     against = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='played_against')
+    # season = models.PositiveIntegerField(default=2019)
+    # week = models.PositiveIntegerField(default = 0)
     points = models.PositiveIntegerField()
     off_yards_gained = models.PositiveIntegerField()
     rush_yards = models.PositiveIntegerField()
