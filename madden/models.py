@@ -16,7 +16,8 @@ class Game(models.Model):
     week = models.PositiveIntegerField()
     won = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='wins')
     lost = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='losses')
-
+    win_score = models.PositiveIntegerField(default = 0)
+    lose_score = models.PositiveIntegerField(default = 0)
     def __str__(self):
         return f'{self.won} vs {self.lost}: Week {self.week}, {self.season}'
 
