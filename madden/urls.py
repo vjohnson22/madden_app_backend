@@ -12,6 +12,9 @@ urlpatterns = [
     path('players/', views.PlayerList.as_view(), name='player_list'),
     path('players/<int:pk>', views.PlayerDetail.as_view(), name='player_detail'),
     path('playerstats/', views.PlayerStatList.as_view(), name='player_stats_list'),
-    path('playerstats/<int:pk>', views.PlayerStatDetail.as_view(), name='player_stats_detail')
+    path('playerstats/<int:pk>', views.PlayerStatDetail.as_view(), name='player_stats_detail'),
+    path('seasonstats/', views.SeasonStatList.as_view(), name='season_stats_list'),
+    path('seasonstats/<int:pk>', views.SeasonStatDetail.as_view(), name='season_stats_detail')
+
 
 ]

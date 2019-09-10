@@ -44,8 +44,8 @@ class Player(models.Model):
 
 
 class PlayerStat(models.Model):
-    name = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='player_stats')
-    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='game')
+    name = models.ForeignKey(Player, on_delete=models.CASCADE,     related_name='player_stats')
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='players_game_stats')
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='player_owner')
     against = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='owner_played_against')
     pass_yards = models.PositiveIntegerField(default=0)
@@ -70,7 +70,7 @@ class PlayerStat(models.Model):
         return f'{self.name}: {self.game}'
 
 class SeasonStat(models.Model):
-    owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='season_owner')
+    owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='seasons')
     season = models.PositiveIntegerField() 
     wins = models.PositiveIntegerField()
     losses = models.PositiveIntegerField()
