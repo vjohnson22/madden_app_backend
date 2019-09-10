@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'cw8-+yg)ts!6v6fy&in9$wjf4z5dg==0eb6wm_e+fi!h_0%mg2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://maddenstatsapp.herokuapp.com']
 
 
 # Application definition
@@ -153,6 +153,6 @@ import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 
-ALLOWED_HOSTS = ['https://maddenstatsapp.herokuapp.com']
+ALLOWED_HOSTS = []
 
 CORS_ORIGIN_ALLOW_ALL = True
