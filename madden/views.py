@@ -3,8 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 
 from rest_framework import generics
-from .serializers import OwnerSerializer, GameSerializer, GameStatSerializer
-from .models import Game, Owner, GameStat
+from .serializers import OwnerSerializer, GameSerializer, GameStatSerializer, PlayerSerializer
+from .models import Game, Owner, GameStat, Player
 
 #  GameStat, Player, PlayerStat, SeasonStat
 
@@ -31,3 +31,11 @@ class GameStatList(generics.ListCreateAPIView):
 class GameStatDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = GameStat.objects.all()
     serializer_class = GameStatSerializer    
+
+class PlayerList(generics.ListCreateAPIView):
+    queryset = Player.objects.all()
+    serializer_class = PlayerSerializer
+
+class PlayerDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Player.objects.all()
+    serializer_class = PlayerSerializer    

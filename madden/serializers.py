@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Game, Owner, GameStat 
+from .models import Game, Owner, GameStat, Player 
 
-#  GameStat, Player, PlayerStat, SeasonStat
+#  PlayerStat, SeasonStat
 
 class OwnerSerializer(serializers.HyperlinkedModelSerializer):
     wins = serializers.HyperlinkedRelatedField(
@@ -87,3 +87,14 @@ class GameStatSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = GameStat
         fields = ('id','game','owner','against','points','off_yards_gained','rush_yards', 'pass_yards','first_downs','punt_return_yards','kick_return_yards','turnovers')
+
+class PlayerSerializer(serializers.HyperlinkedModelSerializer):
+    player_stats = serializers.HyperlinkedRelatedField(
+        view_name='player_stats_detail',
+        many=True,
+        read_only=True
+    )
+
+    class Meta:
+        model = Player
+        fields = ('id','name', 'photo_url','position','player_stats')
