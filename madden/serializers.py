@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Game, Owner, GameStat, Player 
+from .models import Game, Owner, GameStat, Player, PlayerStat 
 
 #  PlayerStat, SeasonStat
 
@@ -98,3 +98,25 @@ class PlayerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Player
         fields = ('id','name', 'photo_url','position','player_stats')
+
+class PlayerStatSerializer(serializers.HyperlinkedModelSerializer):
+    name = serializers.HyperlinkedRelatedField(
+        view_name='player_detail',
+        read_only=True
+    )
+    game = serializers.HyperlinkedRelatedField(
+        view_name='game_detail',
+        read_only=True
+    )
+    owner = serializers.HyperlinkedRelatedField(
+        view_name='owner_detail',
+        read_only=True
+    )
+    against  = serializers.HyperlinkedRelatedField(
+        view_name='owner_detail',
+        read_only=True
+    )
+
+    class Meta:
+        model = PlayerStat
+        fields = ('id','name', 'game','owner','against','pass_yards','pass_td',  'pass_int','times_sacked', 'pass_complete','pass_attempt','rush_yards','rush_tds','fumbled','break_tackle','receptions','receiving_yards', 'receiving_tds','tackles','tfl','sacks','interceptions','defensive_tds')
