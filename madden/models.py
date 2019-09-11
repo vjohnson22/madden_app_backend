@@ -12,7 +12,7 @@ class Owner(models.Model):
 
 
 class Game(models.Model):
-    season = models.PositiveIntegerField()
+    season = models.PositiveIntegerField(default=2019)
     week = models.PositiveIntegerField()
     won = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='wins')
     lost = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='losses')
