@@ -1,2 +1,2 @@
-web: gunicorn madden_django.wsgi --log-file -
+web: gunicorn madden_django.wsgi.py --log-file -
 
