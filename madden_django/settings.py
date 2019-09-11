@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'madden',
     'django_extensions',
     'rest_framework',
-    'corsheaders'
+    # 'corsheaders'
 ]
 
 REST_FRAMEWORK = {
@@ -51,7 +51,7 @@ REST_FRAMEWORK = {
     ]
 }
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -151,4 +151,4 @@ DATABASES['default'].update(prod_db)
 
 
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
