@@ -27,12 +27,13 @@ class GameStat(models.Model):
     against = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='played_against')
     points = models.PositiveIntegerField()
     off_yards_gained = models.PositiveIntegerField()
-    rush_yards = models.PositiveIntegerField()
-    pass_yards = models.PositiveIntegerField()
+    rush_yards = models.IntegerField(default=0)
+    pass_yards = models.IntegerField(default=0)
     first_downs = models.PositiveIntegerField()
-    punt_return_yards = models.PositiveIntegerField()
-    kick_return_yards = models.PositiveIntegerField()
+    punt_return_yards = models.IntegerField(default=0)
+    kick_return_yards = models.IntegerField(default=0)
     turnovers = models.PositiveIntegerField(default=0)
+    
 
     
 class Player(models.Model):
@@ -49,24 +50,26 @@ class PlayerStat(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='players_game_stats')
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='player_owner')
     against = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='owner_played_against')
-    pass_yards = models.PositiveIntegerField(default=0)
+    pass_yards = models.IntegerField(default=0)
     pass_td = models.PositiveIntegerField(default=0)
     pass_int = models.PositiveIntegerField(default=0)
     times_sacked = models.PositiveIntegerField(default=0)
     pass_complete = models.PositiveIntegerField(default=0)
     pass_attempt  = models.PositiveIntegerField(default=0)
-    rush_yards = models.PositiveIntegerField(default=0)
+    rush_yards = models.IntegerField(default=0)
     rush_tds = models.PositiveIntegerField(default=0)
     fumbled = models.PositiveIntegerField(default=0)
     break_tackle = models.PositiveIntegerField(default=0) 
     receptions = models.PositiveIntegerField(default=0)
-    receiving_yards =models.PositiveIntegerField( default=0)
+    receiving_yards =models.IntegerField(default=0)
     receiving_tds = models.PositiveIntegerField( default=0)
     tackles = models.PositiveIntegerField(default=0)
     tfl = models.PositiveIntegerField(default=0)
-    sacks = models.PositiveIntegerField(default=0)
+    sacks = models.FloatField(default=0)
     interceptions = models.PositiveIntegerField(default=0)
     defensive_tds = models.PositiveIntegerField(default=0)
+    forced_fumbles = models.IntegerField(default=0)
+    pass_defended = models.IntegerField(default=0)
     def __str__(self):
         return f'{self.name}: {self.game}'
 
@@ -95,6 +98,8 @@ class SeasonStat(models.Model):
     coach_of_year = models.PositiveIntegerField(default=0)
     opoy = models.PositiveIntegerField(default=0)
     dpoy = models.PositiveIntegerField(default=0)
+    oroy = models.PositiveIntegerField(default=0)
+    droy = models.PositiveIntegerField(default=0)
     qboy = models.PositiveIntegerField(default=0)
     rboy = models.PositiveIntegerField(default=0)
     wroy = models.PositiveIntegerField(default=0)
@@ -103,6 +108,9 @@ class SeasonStat(models.Model):
     lboy = models.PositiveIntegerField(default=0)
     dboy = models.PositiveIntegerField(default=0)
     koy = models.PositiveIntegerField(default=0)
+    superbowl= models.PositiveIntegerField(default=0)
+    conference = models.PositiveIntegerField(default=0)
+    division = models.PositiveIntegerField(default=0)
     
 
 
