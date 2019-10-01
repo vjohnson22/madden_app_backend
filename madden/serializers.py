@@ -109,7 +109,7 @@ class PlayerStatSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = PlayerStat
-        fields = ('id','name', 'game','owner','against','pass_yards','pass_td',  'pass_int','times_sacked', 'pass_complete','pass_attempt','rush_yards','rush_tds','fumbled','break_tackle','receptions','receiving_yards', 'receiving_tds','tackles','tfl','sacks','interceptions','defensive_tds')
+        fields = ('id','name', 'game','owner','against','pass_yards','pass_td',  'pass_int','times_sacked', 'pass_complete','pass_attempt','rush_yards','rush_tds','fumbled','break_tackle','receptions','receiving_yards', 'receiving_tds','tackles','tfl','sacks','interceptions','defensive_tds',    'forced_fumbles', 'pass_defended')
 
 class SeasonStatSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.HyperlinkedRelatedField(
@@ -118,4 +118,4 @@ class SeasonStatSerializer(serializers.HyperlinkedModelSerializer):
     )
     class Meta:
         model = SeasonStat
-        fields = ('id','owner', 'season','wins','losses','pf','pa','total_yards_offense','total_offense','pass_yards','rush_yards','ppg', 'pass_tds','rush_tds','first_downs','total_yards_defense','pass_yards_allowed','rush_yards_allowed','sacks', 'forced_fumbles',   'interceptions')
+        fields = ('id','owner', 'season','wins','losses','pf','pa','total_yards_offense','total_offense','pass_yards','rush_yards','ppg', 'pass_tds','rush_tds','first_downs','total_yards_defense','pass_yards_allowed','rush_yards_allowed','sacks', 'forced_fumbles',   'interceptions', 'mvp', 'coach_of_year', 'opoy', 'dpoy', 'oroy', 'droy', 'qboy', 'rboy', 'wroy', 'oloy', 'dloy', 'lboy', 'dboy', 'koy', 'superbowl',    'conference',   'division' )
