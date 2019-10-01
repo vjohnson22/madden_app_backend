@@ -64,12 +64,12 @@ class PlayerStat(models.Model):
     receiving_yards =models.IntegerField(default=0)
     receiving_tds = models.PositiveIntegerField( default=0)
     tackles = models.PositiveIntegerField(default=0)
-    tfl = models.PositiveIntegerField(default=0)
-    sacks = models.FloatField(default=0)
-    interceptions = models.PositiveIntegerField(default=0)
-    defensive_tds = models.PositiveIntegerField(default=0)
-    forced_fumbles = models.IntegerField(default=0)
-    pass_defended = models.IntegerField(default=0)
+    # tfl = models.PositiveIntegerField(default=0)
+    # sacks = models.FloatField(default=0)
+    # interceptions = models.PositiveIntegerField(default=0)
+    # defensive_tds = models.PositiveIntegerField(default=0)
+    # forced_fumbles = models.IntegerField(default=0)
+    # pass_defended = models.IntegerField(default=0)
     def __str__(self):
         return f'{self.name}: {self.game}'
 
